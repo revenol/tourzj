@@ -1,0 +1,153 @@
+.epassbody {
+	background: white;
+	width: 90%;
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 20px;
+	height: 90%;
+}
+
+.epassTop {
+	overflow: hidden;
+	height: 100%;
+}
+
+.epassFoot {
+	text-align: center;
+}
+
+.epassFoot li {
+	margin: 5% auto;
+}
+
+.epassPerson {
+	background: url(./mybg.png) no-repeat;
+	border-radius: 20px;
+	background-position: center;
+	background-size: 115% 100%;
+	overflow: hidden;
+}
+
+.epassMessage {
+	padding: 5%;
+}
+
+.time {
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	letter-spacing:5px;
+}
+
+.refresh {
+	text-align: center;	
+	font-size: 25px;
+	font-weight: bold;
+	color: #999999;
+}
+
+.tips {
+	text-align: center;
+}
+
+.tips li {
+	margin: 12% 0;
+}
+
+.tips li:nth-child(2n-1) {
+	color: #999999;
+}
+
+.tips div {
+	margin: 7% auto;
+}
+
+.personMessage {
+	position: relative;
+	padding-bottom: 10px;
+}
+
+.personMessage .headPic {
+	position: absolute;
+	right: 5%;
+	top: 18%;
+	width: 90px;
+height:115px;
+}
+
+.personMessage ul li {
+	margin: 6% 0 0 4%;
+	font-size: 14px;
+	font-family: Microsoft YaHei;
+}
+
+.personMessage ul li div {
+	background: rgba(255, 255, 255, 0.6);
+	display: inline-block;
+	border-radius: 5px;
+	line-height: 20px;
+	padding: 5px;
+}
+
+.personMessage ul li div span{
+	font-weight: bold;
+    color: #148af4;
+}
+
+.personMessage ul .epassUserType {
+	font-size: 25px;
+	color: white;
+	font-weight: bold;
+	text-shadow: 4px 4px 15px #000000;
+}
+
+.epassUserType div span {
+	font-size: 28px;
+}
+
+.dormitory {
+	width: 170px;
+	height: 30px;
+	line-height: 30px;
+	background: rgba(0, 168, 255, 1);
+	opacity: 0.8;
+	border-radius: 5px;
+	display: block;
+}
+
+.headPic img {
+	max-width: 90%;
+	margin-top: 30%;
+}
+
+.redTip {
+	color: #BC0823;
+	font-weight: 700;
+}
+
+.greenTip {
+	color: #21AF61;
+	font-weight: 700;
+}
+
+.blueTip {
+	color: #148AF4;
+	font-weight: 700;
+}
+
+.yellowTip {
+	color: #FCA001;
+	font-weight: 700;
+}
+
+.epassCode {
+	width: 65%;
+}
+
+* {
+	font-family: "microsoft yahei";
+}
+.layui-layout-body {
+		overflow: auto;
+	}
