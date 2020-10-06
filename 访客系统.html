@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- saved from url=(0117)https://fkxt.tourzj.edu.cn/visitor/start/index.html#//business/epass/user-visitor/id=ff808081748b34300174ce2bdf530d4a -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>访客系统</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="./访客系统_files/layui.css" media="all">
+  <link rel="stylesheet" href="./访客系统_files/iconfont.css" media="all">
+  <script src="./访客系统_files/jweixin-1.2.0.js.download"></script>
+	<script src="./访客系统_files/dingtalk.open.js.download"></script>
+
+
+	<script>
+  </script><link id="layuicss-layer" rel="stylesheet" href="./访客系统_files/layer.css" media="all"><link id="layuicss-layuiAdmin" rel="stylesheet" href="./访客系统_files/admin.css" media="all"><link id="layuicss-https:fkxttourzjeducnvisitordiststylecsslayuisycss?v=121 pro-1" rel="stylesheet" href="./访客系统_files/layuisy.css" media="all"></head>
+  
+
+<body layadmin-themealias="default" class="layui-layout-body">
+  <div id="LAY_app" class="layadmin-tabspage-none"><script type="text/html" template="" lay-done="layui.data.done()">
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/css/epass-my.css" media="all and (orientation:portrait)">
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/css/epass-wl-landscape.css" media="all and (orientation:landscape)">
+	<!-- 正文开始 -->
+	<div style="height: 100%; max-width: 500px; margin:0 auto;">
+		<div class="epassbody">
+			<div class="epassTop">
+				<div class="epassPerson">
+					<div class="personMessage">
+						<ul>
+							<li class="epassUserType"><img src="{{ layui.setter.base }}style/images/mylogo.png" style="width: 50px;">&nbsp;&nbsp;访客通行证</li>
+							<li style="max-width: 60%;">
+								<div>姓名：<span id="xm"></span></div>
+							</li>
+							<li style="max-width: 60%;">
+								<div>被访人：<span id="bfr"></span></div>
+							</li>
+							<li style="max-width: 90%;">
+								<div>访问时间：<span id="fwsj"></span></div>
+							</li>
+
+						</ul>
+						<img id="headpic" class="headPic" onerror="this.src='{{ layui.setter.base }}style/images/headpic.png';this.onerror=null">
+					</div>
+				</div>
+				<div class="epassMessage">
+					<div class="refresh">
+						<span id="refreshTime">{{layui.util.toDateString(new Date(), 'yyyy-MM-dd HH:mm:ss')}}</span>
+					</div>
+					<div class="tips" id="tips" style="background: #d9f4e0;padding: 1px;">
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="epassFoot">
+			{{layui.cache.copyright}}
+		</div>
+	</div>
+</script> <link rel="stylesheet" href="./访客系统_files/epass-my.css" media="all and (orientation:portrait)"> <link rel="stylesheet" href="./访客系统_files/epass-wl-landscape.css" media="all and (orientation:landscape)"> <!-- 正文开始 --> <div style="height: 100%; max-width: 500px; margin:0 auto;"> <div class="epassbody"> <div class="epassTop"> <div class="epassPerson"> <div class="personMessage"> <ul> <li class="epassUserType"><img src="./访客系统_files/mylogo.png" style="width: 50px;">&nbsp;&nbsp;访客通行证</li> <li style="max-width: 60%;"> <div>姓名：<span id="xm">黄亮</span></div> </li> <li style="max-width: 60%;"> <div>被访人：<span id="bfr">酒店管理系-周伊萌</span></div> </li> <li style="max-width: 90%;"> <div>访问时间：<span id="fwsj">2020-09-27 00:00 ~ 2020-09-30 00:00</span></div> </li> </ul> <img id="headpic" class="headPic" onerror="this.src=&#39;https://fkxt.tourzj.edu.cn/visitor/dist/style/images/headpic.png&#39;;this.onerror=null" src="./访客系统_files/ff808081748b34300174ce2bdf530d4a"> </div> </div> <div class="epassMessage"> <div class="refresh"> <span id="refreshTime">2020-09-27 21:52:51</span> </div> <div class="tips" id="tips" style="background: #d9f4e0;padding: 1px;">  <div style="width: 100%;font-size: 20px;font-weight: bold;font-family: Microsoft YaHei; margin: 3% auto;">访客码</div> <img class="epassCode" id="visitorCode" src="./访客系统_files/code"> <div style="width: 100%;color: #999999;font-size: 13px;font-family: Microsoft YaHei;">凭绿码可在本校范围内临时通行 </div>  </div> </div> </div> </div> <div class="epassFoot"> <li>浙江旅游职业学院</li><li></li> </div> </div> <input type="hidden" id="coordinates"><script>
+	layui.data.done = function(d) {
+		layui.use(['form', 'layer', 'util', 'laytpl', 'syReqUtil', 'syCacheUtil', 'syCacheUtil'], function() {
+			var $ = layui.jquery;
+			var start = layui.util.toDateString(new Date(), 'yyyy-MM-dd HH:mm:ss');
+			$('#headpic').attr('src', layui.setter.base_server + '/avoid/visitor/photo/' + layui.router().search.id);
+
+			setInterval(function() {
+				$('#refreshTime').html(layui.util.toDateString(new Date(), 'yyyy-MM-dd HH:mm:ss'));
+			}, 1000)
+			var tipsTpl = tipsTemplate.innerHTML,
+				tipsView = $('#tips');
+
+			layui.syReqUtil.sendAjaxByParams('/avoid/visitor/' + layui.router().search.id,
+				'get', '',
+				function(success, msg, data) {
+					$('#xm').html(data.xm);
+					$('#sjh').html(data.sjh);
+					$('#fwsj').html(data.kssj.substring(0, 16) + ' ~ ' + data.jssj.substring(0, 16));
+					$('#bfr').html(data.bfrbm + '-' + data.bfrxm);
+					layui.laytpl(tipsTpl).render(data, function(html) {
+						tipsView.html(html);
+						$('#visitorCode').attr('src', layui.setter.base_server + '/avoid/visitor/code?id=' + layui.router().search.id)
+					});
+				});
+		});
+	}
+</script><script type="text/html" id="tipsTemplate">
+	{{#if(d.fkmzt=='1'){ }}
+	<ul class="redCode">
+		<li>{{layui.cache.city}}健康码-<span class="redTip">红码</span></li>
+		<li class="redTip">请前往支付宝-{{layui.cache.city}}健康码连续14天健康打卡。</li>
+		<li>访问预约</li>
+		<li class="redTip">当前{{layui.cache.city}}健康码为红码，访问预约自动拒绝。</li>
+		<li>当{{layui.cache.city}}健康码为绿码，方可进行访问预约。</li>
+	</ul>
+	{{# }else if(d.fkmzt=='0'){ }}
+	<ul class="redCode">
+		<li>{{layui.cache.city}}健康码-<span class="yellowTip">暂无</span></li>
+		<li class="yellowTip">当前暂未获取到您的{{layui.cache.city}}健康码</li>
+		<li></li>
+		<li class="yellowTip">请前往支付宝获取{{layui.cache.city}}健康码</li>
+		<li>当{{layui.cache.city}}健康码为绿码，方可进行访问。</li>
+	</ul>
+	{{# }else if(d.fkmzt=='2'){ }}
+	<ul class="yellowCode">
+		<li>{{layui.cache.city}}健康码-<span class="yellowTip">黄码</span></li>
+		<li class="yellowTip">请前往支付宝-{{layui.cache.city}}健康码连续7天健康打卡。</li>
+		<li>填写返校申请</li>
+		<li class="yellowTip">当前{{layui.cache.city}}健康码为黄码，不可申请返校。</li>
+		<li>当{{layui.cache.city}}健康码为绿码，方可进行访问预约。</li>
+	</ul>
+	{{# }else if(d.fkmzt=='3'){ }}
+	<div style="width: 100%;font-size: 20px;text-align: center;font-weight: bold;font-family: Microsoft YaHei;">访客码</div>
+	<div style="width: 100%;text-align: center;"><img class="epassCode" src="{{ layui.setter.base }}style/images/shz.png" /></div>
+	<div style="width: 100%;color: #999999;font-size: 13px;font-family: Microsoft YaHei;">访客信息审核中，请耐心等待。
+	</div>
+	{{# }else if(d.fkmzt=='4'){ }}
+	<ul class="greenCode">
+		<li>{{layui.cache.city}}健康码-<span class="greenTip">绿码</span></li>
+		<li class="greenTip">当前{{layui.cache.city}}健康码为绿码。</li>
+		<li>访问预约</li>
+		<li class="greenTip">访客预约被拒绝,请联系相关老师重新申请</li>
+		<li>当{{layui.cache.city}}健康码为绿码，方可进行访问预约。</li>
+	</ul>
+	{{# }else if(d.fkmzt=='5'){ }}
+	<div style="width: 100%;font-size: 20px;font-weight: bold;font-family: Microsoft YaHei; margin: 3% auto;">访客码</div>
+	<img class="epassCode" id="visitorCode" />
+	<div style="width: 100%;color: #999999;font-size: 13px;font-family: Microsoft YaHei;">凭绿码可在本校范围内临时通行
+	</div>
+	{{# }else if(d.fkmzt=='6'||d.fkmzt=='7'){ }}
+	<div style="width: 100%;font-size: 20px;font-weight: bold;font-family: Microsoft YaHei; margin: 3% auto;">访客码</div>
+	<img class="epassCode" id="visitorCode" />
+	<div style="width: 100%;color: #999999;font-size: 13px;font-family: Microsoft YaHei;">不在可通行时间内
+	</div>
+	{{# }else if(d.fkmzt=='8'){ }}
+	<ul class="greenCode">
+		<li>{{layui.cache.city}}健康码-<span class="greenTip">绿码</span></li>
+		<li class="greenTip">当前{{layui.cache.city}}健康码为绿码。</li>
+		<li>访问预约</li>
+		<li class="greenTip">访客预约被终止,请联系相关老师重新申请</li>
+		<li>当{{layui.cache.city}}健康码为绿码，方可进行访问预约。</li>
+	</ul>
+	{{# }}}
+</script></div>
+  <script src="./访客系统_files/layui.js.download"></script>
+  <script>
+  layui.config({
+    base: 'https://fkxt.tourzj.edu.cn/visitor/dist/' //指定 layuiAdmin 项目路径，本地开发用 src，线上用 dist
+    ,version: '1.2.5'
+    ,base_server:'https://fkxt.tourzj.edu.cn/visitorng'
+    ,logoUrl:'https://fkxt.tourzj.edu.cn/visitor/dist/style/images/login/logo-my.png'
+    ,name:'访客系统'
+    ,copyright:'<li>浙江旅游职业学院<li/>'
+    ,login_url:'/system/login'
+    ,indexHtml:'/business/epass/visitorList'
+    ,city:'浙江'
+    ,login_key:'HhxjIEiDjC8czP4PV+44LjXvLYcSV0fwi6nE4LH2c5PBPEnPfqp0g8TZeX+bYGvd70cXee9d8wHgBqi4k0J0'
+  }).use('index');
+  </script>
+
+
+
+
+<style id="LAY_layadmin_theme">.layui-side-menu,.layadmin-pagetabs .layui-tab-title li:after,.layadmin-pagetabs .layui-tab-title li.layui-this:after,.layui-layer-admin .layui-layer-title,.layadmin-side-shrink .layui-side-menu .layui-nav>.layui-nav-item>.layui-nav-child{background-color:#20222A !important;}.layui-nav-tree .layui-this,.layui-nav-tree .layui-this>a,.layui-nav-tree .layui-nav-child dd.layui-this,.layui-nav-tree .layui-nav-child dd.layui-this a{background-color:#009688 !important;}.layui-layout-admin .layui-logo{background-color:#20222A !important;}</style><div class="layui-layer-move"></div></body></html>
